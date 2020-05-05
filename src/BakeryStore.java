@@ -37,19 +37,25 @@ public class BakeryStore {
                 "sesame free, vegan","Cookies"));
     }
 
-    public ArrayList<String> searchStore(String StrToSearch) {
-        ArrayList<String> selectedItems = new ArrayList();
-        switch(StrToSearch) {
-            case "all":
-                for (int i = 0; i < storeItems.size(); i++) {
-                    selectedItems.add(storeItems.get(i).toString());
+    /*public ArrayList<String> searchStore(String StrToSearch) {*/
+    public String searchStore(String strToSearch) {
+ //       ArrayList<String> selectedItems = new ArrayList<String>();
+        String retStr = "";
+        if (! strToSearch.equals("all")) {
+            for (int i = 0; i < storeItems.size(); i++) {
+                String item = storeItems.get(i).toString();
+                String restrictions = storeItems.get(i).getDietRestrictionsMet();
+                if (restrictions.contains(strToSearch)) {
+                    //selectedItems.add(item);
+                    retStr += item + "\n";
                 }
-            default:
-                for (int i = 0; i < storeItems.size(); i++) {
-                    selectedItems.add(storeItems.get(i).toString());
-                }
+            }
+        } else {
+            for (int i = 0; i < storeItems.size(); i++) {
+                String item = storeItems.get(i).toString();
+                retStr += item + "\n";
+            }
         }
-        return selectedItems;
+        return retStr;
     }
-
 }
