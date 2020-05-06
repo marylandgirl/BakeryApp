@@ -1,4 +1,13 @@
 import java.lang.StringBuffer;
+/* The BakedGoods class represents an item sold in a Bakery Store that
+*    specializes in preparing baked goods for people with restrictive
+*    diets - i.e. vegans, people with food sensitivites like gluten, etc.
+* This class was created as part of a group exercise to create a Bakery
+*    application
+*
+* Kim Levin
+* 5/4/2020
+*/
 public class BakedGoods {
     private String name;
     private double price;
